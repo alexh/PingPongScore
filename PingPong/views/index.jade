@@ -1,22 +1,24 @@
 extends layout
 
 block content
-    h1= title
-    p Welcome to the Ping Pong Server
+	h1= title
+	p Welcome to the Ping Pong Server
 
-    // Wrapper
-    #wrapper
+	// Wrapper
+	#wrapper
 
-        // USER LIST
-        h2 User List
-        #gameList
-            table
-                thead
-                    th player1
-                    th score1
-                    th player2
-                    th score2
-                tbody
-        // /USER LIST
-
-    // /WRAPPER
+		// GAME LIST
+		h2 Game list
+		#gameList
+			table
+				thead
+					th player1
+					th score1
+					th player2
+					th score2
+					th status
+				tbody
+		// /USER LIST
+	// /WRAPPER
+block script
+	script(src='/javascripts/tablefill.js')
