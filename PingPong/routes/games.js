@@ -33,6 +33,59 @@ router.get('/gamelist', function(req, res) {
 });
 
 /*
+ * GET leaderboard.
+ */
+router.get('/alex', function(req, res) {
+
+	pg.connect(connectionString, (err, client, done) => {
+		const results = [];
+	    // Handle connection errors
+	    if(err) {
+	      done();
+	      console.log(err);
+	      return res.status(500).json({success: false, data: err});
+	    }
+	    // SQL Query > Select Data
+	    const query = client.query('SELECT COUNT(*) FROM games WHERE (player1 = \'Alex\' AND player2 = \'Dad\' AND status = \'1\') OR (player2 = \'Alex\' AND player1 = \'Dad\' AND status = \'2\');');
+	    // Stream results back one row at a time
+	    query.on('row', (row) => {
+	      results.push(row);
+	    });
+	    // After all data is returned, close connection and return results
+	    query.on('end', () => {
+	      done();
+	      return res.json(results);
+	    });
+  });
+
+});
+
+router.get('/dad', function(req, res) {
+
+	pg.connect(connectionString, (err, client, done) => {
+		const results = [];
+	    // Handle connection errors
+	    if(err) {
+	      done();
+	      console.log(err);
+	      return res.status(500).json({success: false, data: err});
+	    }
+	    // SQL Query > Select Data
+	    const query = client.query('SELECT COUNT(*) FROM games WHERE (player1 = \'Dad\' AND player2 = \'Alex\' AND status = \'1\') OR (player2 = \'Dad\' AND player1 = \'Alex\' AND status = \'2\');');
+	    // Stream results back one row at a time
+	    query.on('row', (row) => {
+	      results.push(row);
+	    });
+	    // After all data is returned, close connection and return results
+	    query.on('end', () => {
+	      done();
+	      return res.json(results);
+	    });
+  });
+
+});
+
+/*
  * GET current game
  */
 router.get('/currentGame', function(req, res) {

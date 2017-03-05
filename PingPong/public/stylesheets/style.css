@@ -7,12 +7,27 @@ h2 {
 	margin:0 0 .5em 0;
 }
 
+
+#leaderboard {
+}
+
 a {
   color: #00B7FF;
 }
 
 .game{
 	display: none;
+}
+
+.record{
+	color:#2D21FF;
+	font-size: 200%;
+}
+
+.alert{
+	text-align: center;
+	color:#FC0017;
+	font-size: 200%;
 }
 
 #player{

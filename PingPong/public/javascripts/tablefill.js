@@ -5,10 +5,24 @@ var gameListData = [];
 $(document).ready(function() {
     // Populate the user table on initial page load
     populateTable();
+    populateLeaderboard();
 
 });
 
 // Functions =============================================================
+
+
+function populateLeaderboard(){
+    // jQuery AJAX call for JSON
+    $.getJSON( '/games/alex', function( data ) {
+        var alex = data[0];
+        $('.record').html('Alex: ' + alex.count + ' Dad: ');
+    });
+    $.getJSON( '/games/dad', function( data ) {
+        var dad = data[0];
+        $('.record').append(dad.count);
+    });
+}
 
 // Fill table with data
 function populateTable() {
