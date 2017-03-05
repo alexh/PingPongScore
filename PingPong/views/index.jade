@@ -18,7 +18,17 @@ block content
 					th score2
 					th status
 				tbody
-		// /USER LIST
+		// GAME LIST
+		h2 New Game
+		form(name="start-new-game", action="/play/start", method="POST")
+			div.input
+				span.label Player 1
+				input(type="text", name="player1")
+			div.input
+				span.label Player 2
+				input(type="text", name="player2")
+			div.actions
+				input(type="submit", value="Begin")
 	// /WRAPPER
 block script
 	script(src='/javascripts/tablefill.js')

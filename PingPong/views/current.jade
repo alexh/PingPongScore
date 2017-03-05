@@ -1,0 +1,13 @@
+extends layout
+
+block content
+	h1= title
+	p Welcome to the Ping Pong Server
+
+	#players
+		div.row
+			div.col-sm-6#player
+				h2= player1
+			div.col-sm-6#player
+				h2= player2
+block script

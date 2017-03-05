@@ -11,6 +11,11 @@ a {
   color: #00B7FF;
 }
 
+
+#player{
+	text-align: center;
+}
+
 #wrapper {
 	padding-left:312px;
 	position:relative;

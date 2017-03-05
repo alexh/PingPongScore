@@ -15,6 +15,7 @@ client.connect();
 
 var routes = require('./routes/index');
 var games = require('./routes/games');
+var play = require('./routes/play');
 
 var app = express();
 
@@ -33,6 +34,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', routes);
 app.use('/games', games);
+app.use('/play', play);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
