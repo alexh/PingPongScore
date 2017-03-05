@@ -11,9 +11,26 @@ a {
   color: #00B7FF;
 }
 
+.game{
+	display: none;
+}
 
 #player{
+	padding-top: 3%;
 	text-align: center;
+}
+
+#addbutton{
+	font-size: 500%
+}
+
+#subbutton{
+	font-size: 500%
+}
+
+#score{
+	padding-top: 10%;
+	font-size: 1000%
 }
 
 #wrapper {

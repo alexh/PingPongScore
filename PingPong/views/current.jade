@@ -1,13 +1,22 @@
 extends layout
 
 block content
-	h1= title
-	p Welcome to the Ping Pong Server
-
+	div.game
 	#players
 		div.row
 			div.col-sm-6#player
-				h2= player1
+				div.player1
+					h2#name
+					h1#score
+					a(onclick="addScore(1,1)").btn#addbutton +
+					br
+					a(onclick="addScore(1,-1)").btn#subbutton -
 			div.col-sm-6#player
-				h2= player2
+				div.player2
+					h2#name
+					h1#score
+					a(onclick="addScore(2,1)").btn#addbutton +
+					br
+					a(onclick="addScore(2,-1)").btn#subbutton -
 block script
+	script(src='/javascripts/current.js')
