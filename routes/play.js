@@ -8,6 +8,7 @@ router.post('/start', function(req, res) {
 	var player1 = req.body.player1;
 	var player2 = req.body.player2;
 	var password = req.body.password;
+	console.log(player1 + player2);
 
 	pg.connect(connectionString, (err, client, done) => {
 		var results = {};
