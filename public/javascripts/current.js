@@ -6,15 +6,36 @@ $(document).ready(function() {
 
 		setInterval(function(){ 
 			populateCurrent();
-			console.log('updated');
 		}, 500);
 
 });
 
 // Functions =============================================================
 
+
+function scoresUpdated(score1, score2){
+	var sum = score1 + score2
+		if ((sum) % 5 == 0){
+			var audio = new Audio('http://alexhaynes.org/beep.mp3');
+			if (sum % 10 == 0){
+				var count = 0;
+				audio.addEventListener('ended', function(){
+					if (count < 1){
+						audio.play();
+						count++;
+					}
+				});
+				audio.play();
+			} else {
+				audio.play();
+			}
+		}
+}
+
 // Fill table with data
 function populateCurrent() {
+	var score1Old = parseInt($('.player1 #score').html());
+	var score2Old = parseInt($('.player2 #score').html());
 
 	// jQuery AJAX call for JSON
 	$.getJSON( '/games/currentGame', function( data ) {
@@ -27,6 +48,12 @@ function populateCurrent() {
 		 $('.player2 #score').html(game.score2);
 		 $('.game').html(game.id);
 
+		 console.log('old 1: ' + score1Old + ' score1: ' + score1);
+
+		 if (score1Old != score1 || score2 != score2Old){
+				console.log('there was change!');
+				scoresUpdated(score1, score2);
+			}
 
 		 if ((score1 >= 21 || score2 >= 21) && (score1 > score2 + 1 || score2 > score1 + 1)){
 			var winner = '';
