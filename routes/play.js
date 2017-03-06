@@ -29,7 +29,7 @@ router.post('/start', function(req, res) {
       		}
     	});
     	pwq.on('end', function(row, result) {
-      		if (true){
+      		if (wasValid){
 		    	var queryString = 'INSERT INTO games ("player1", "player2") values(\''+ player1 + '\', \'' + player2 + '\');';
 		    	// console.log(queryString);
 	    		const query = client.query(queryString);

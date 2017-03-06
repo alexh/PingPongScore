@@ -61,7 +61,7 @@ router.get('/alex', function(req, res) {
 });
 
 router.get('/dad', function(req, res) {
-
+	console.log('start dad');
 	pg.connect(connectionString, (err, client, done) => {
 		const results = [];
 	    // Handle connection errors
