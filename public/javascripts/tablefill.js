@@ -14,11 +14,11 @@ $(document).ready(function() {
 
 function populateLeaderboard(){
     // jQuery AJAX call for JSON
-    $.getJSON( '/games/alex', function( data ) {
+    $.getJSON( '/games/wincount/Alex/Dad', function( data ) {
         var alex = data[0];
         $('.record').html('Alex: ' + alex.count + ' Dad: ');
     });
-    $.getJSON( '/games/dad', function( data ) {
+    $.getJSON( '/games/wincount/Dad/Alex', function( data ) {
         var dad = data[0];
         $('.record').append(dad.count);
     });

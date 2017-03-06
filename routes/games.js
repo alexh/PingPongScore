@@ -32,6 +32,40 @@ router.get('/gamelist', function(req, res) {
 
 });
 
+
+
+/*
+ * GET leaderboard.
+ */
+router.get('/wincount/:player1/:player2', function(req, res) {
+	console.log('got here~!!!!');
+	var player1 = req.params.player1
+	var player2 = req.params.player2
+
+	pg.connect(connectionString, (err, client, done) => {
+		const results = [];
+	    // Handle connection errors
+	    if(err) {
+	      done();
+	      console.log(err);
+	      return res.status(500).json({success: false, data: err});
+	    }
+	    // SQL Query > Select Data
+	    const query = client.query('SELECT COUNT(*) FROM games WHERE (upper(player1) LIKE upper(\'%'+player1+'%\') AND upper(player2) LIKE upper(\'%'+player2+'%\') AND status = \'1\') OR (upper(player2) LIKE upper(\'%'+player1+'%\') AND upper(player1) LIKE upper(\'%'+player2+'%\') AND status = \'2\');');
+	    // Stream results back one row at a time
+	    query.on('row', (row) => {
+	      results.push(row);
+	    });
+	    // After all data is returned, close connection and return results
+	    query.on('end', () => {
+	      done();
+
+	      return res.json(results);
+	    });
+  });
+
+});
+
 /*
  * GET leaderboard.
  */
