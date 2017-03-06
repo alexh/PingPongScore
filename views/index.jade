@@ -9,13 +9,13 @@ block content
 			h2 New Game
 			form(name="start-new-game", action="/play/start", method="POST")
 				label
-					input(id="player1", type="text", placeholder="Player 1")
+					input(id="player1", name="player1", type="text", placeholder="Player 1")
 					span Player 1
 				label
-					input(id="player2", type="text", placeholder="Player 2")
+					input(id="player2", name="player2", type="text", placeholder="Player 2")
 					span Player 2
 				label
-					input(id="password", type="text", placeholder="Password")
+					input(id="password", name="password", type="text", placeholder="Password")
 					span Password
 				div.actions
 					input(type="submit", value="Begin")
