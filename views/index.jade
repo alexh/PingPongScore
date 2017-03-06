@@ -1,39 +1,42 @@
 extends layout
 
 block content
-	h1= title
-	p Welcome to the Ping Pong Server
+	link(rel='stylesheet', href='/stylesheets/index.css')
 
+
+	div.container.text-center
+		div.newgame.well
+			h2 New Game
+			form(name="start-new-game", action="/play/start", method="POST")
+				label
+					input(id="player1", type="text", placeholder="Player 1")
+					span Player 1
+				label
+					input(id="player2", type="text", placeholder="Player 2")
+					span Player 2
+				label
+					input(id="password", type="text", placeholder="Password")
+					span Password
+				div.actions
+					input(type="submit", value="Begin")
 	// Wrapper
-	#wrapper
 
-		#leaderboard
-			h2 Alex vs Dad
-			h4.record 
-			br
+	div.well#leaderboard
+		h2.record 
 
-		// GAME LIST
+	// GAME LIST
+	div.well#gameList
 		h2 Game list
-		#gameList
-			table
-				thead
-					th player1
-					th score1
-					th player2
-					th score2
-					th status
-				tbody
+		table.center
+			thead
+				th player1
+				th score1
+				th player2
+				th score2
+				th status
+			tbody
 		// GAME LIST
-		h2 New Game
-		form(name="start-new-game", action="/play/start", method="POST")
-			div.input
-				span.label Player 1
-				input(type="text", name="player1")
-			div.input
-				span.label Player 2
-				input(type="text", name="player2")
-			div.actions
-				input(type="submit", value="Begin")
 	// /WRAPPER
 block script
+	script(src='/javascripts/index.js')
 	script(src='/javascripts/tablefill.js')

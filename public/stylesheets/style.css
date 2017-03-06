@@ -1,6 +1,6 @@
 body {
   padding: 30px;
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  font: 14px 'Nunito', Helvetica, Arial, sans-serif;
 }
 
 h2 {
@@ -8,20 +8,12 @@ h2 {
 }
 
 
-#leaderboard {
-}
-
 a {
   color: #00B7FF;
 }
 
 .game{
 	display: none;
-}
-
-.record{
-	color:#2D21FF;
-	font-size: 200%;
 }
 
 .alert{
@@ -51,6 +43,10 @@ a {
 #wrapper {
 	padding-left:312px;
 	position:relative;
+}
+
+.label {
+	color: black;
 }
 
 #gameList {

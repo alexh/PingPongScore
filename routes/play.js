@@ -1,12 +1,13 @@
 
 var express = require('express');
- var pg = require('pg');
+var pg = require('pg');
  const connectionString = process.env.DATABASE_URL || 'postgres://localhost:5432';
 var router = express.Router();
 
 router.post('/start', function(req, res) {
 	var player1 = req.body.player1;
 	var player2 = req.body.player2;
+	var password = req.body.password;
 
 	pg.connect(connectionString, (err, client, done) => {
 		var results = {};
@@ -17,18 +18,33 @@ router.post('/start', function(req, res) {
 	      return res.status(500).json({success: false, data: err});
 	    }
 	    // SQL Query > Select Data
-	    var queryString = 'INSERT INTO games ("player1", "player2") values(\''+ player1 + '\', \'' + player2 + '\');';
-	    console.log(queryString);
-	    const query = client.query(queryString);
-	    // Stream results back one row at a time
-	    query.on('row', (row) => {
-	    });
-	    // After all data is returned, close connection and return results
-	    query.on('end', () => {
-	      done();
-	    });
+	    var passwordCheck = 'SELECT COUNT(*) FROM passwords WHERE value = \'' + password + '\';';
+	    console.log(passwordCheck);
+	    var pwq = client.query(passwordCheck);
+	    var wasValid = false;
+	    pwq.on('row', function(row, result) {
+      		if (row.count >= 1){
+      			wasValid = true;
+      		}
+    	});
+    	pwq.on('end', function(row, result) {
+      		if (wasValid){
+		    	var queryString = 'INSERT INTO games ("player1", "player2") values(\''+ player1 + '\', \'' + player2 + '\');';
+		    	// console.log(queryString);
+	    		const query = client.query(queryString);
+	    		res.redirect('/play/current');
+		    } else {
+		    	res.redirect('/');
+		    }
+    	});
+	    // // Stream results back one row at a time
+	    // query.on('row', (row) => {
+	    // });
+	    // // After all data is returned, close connection and return results
+	    // query.on('end', () => {
+	    //   done();
+	    // });
   	});
-	res.redirect('/play/current');
 });
 
 router.get('/current', function(req, res) {
