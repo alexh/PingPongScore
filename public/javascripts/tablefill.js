@@ -38,10 +38,24 @@ function populateTable() {
             tableContent += '<tr>';
             // tableContent += '<td><a href="#" class="linkshowgame" rel="' + this.username + '">' + this.username + '</a></td>';
             tableContent += '<td>' + this.time_string + '</td>';
-            tableContent += '<td>' + this.player1 + '</td>';
-            tableContent += '<td>' + this.score1 + '</td>';
-            tableContent += '<td>' + this.player2 + '</td>';
-            tableContent += '<td>' + this.score2 + '</td>';
+            if (this.status == '1'){
+                console.log('got in 111111');
+                tableContent += '<td class="winner">' + this.player1 + '</td>';
+                tableContent += '<td class="">' + this.score1 + '</td>';
+                tableContent += '<td class="loser">' + this.player2 + '</td>';
+                tableContent += '<td class="">' + this.score2 + '</td>';
+            } else
+            if (this.status == '2'){
+                tableContent += '<td class="loser">' + this.player1 + '</td>';
+                tableContent += '<td class="">' + this.score1 + '</td>';
+                tableContent += '<td class="winner">' + this.player2 + '</td>';
+                tableContent += '<td class="">' + this.score2 + '</td>';
+            } else {
+                tableContent += '<td >' + this.player1 + '</td>';
+                tableContent += '<td >' + this.score1 + '</td>';
+                tableContent += '<td >' + this.player2 + '</td>';
+                tableContent += '<td >' + this.score2 + '</td>';
+            }
             tableContent += '<td>' + this.status + '</td>';
             tableContent += '</tr>';
         });

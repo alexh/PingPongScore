@@ -46,6 +46,14 @@ table.center {
   margin-right:auto;
 }
 
+#gameList table td.winner {
+  background-color: #35CE8D;
+}
+
+#gameList table td.loser{
+  background-color: #F2545B;
+}
+
 #gameList{
   text-align: center;
   align-content: center;
