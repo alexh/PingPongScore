@@ -2,6 +2,7 @@
 // DOM Ready =============================================================
 $(document).ready(function() {
 		// Populate the user table on initial page load
+
 		populateCurrent();
 
 		setInterval(function(){ 
@@ -11,6 +12,27 @@ $(document).ready(function() {
 });
 
 // Functions =============================================================
+
+
+function scoresUpdatedNoInput(){
+	var sum = score1 + score2
+		if ((sum) % 5 == 0){
+			var audio = new Audio('https://dl.dropboxusercontent.com/s/ktrpg49hxi3mfb4/beep.mp3');
+			if (sum % 10 == 0){
+				var count = 0;
+				audio.addEventListener('ended', function(){
+					if (count < 1){
+						audio.play();
+						count++;
+					}
+				});
+				audio.play();
+			} else {
+				audio.play();
+			}
+		}
+}
+
 
 
 function scoresUpdated(score1, score2){
@@ -48,9 +70,9 @@ function populateCurrent() {
 		 $('.player2 #score').html(game.score2);
 		 $('.game').html(game.id);
 
-		 if (score1Old != score1 || score2 != score2Old){
-				scoresUpdated(score1, score2);
-			}
+		 // if (score1Old != score1 || score2 != score2Old){
+			// 	scoresUpdated(score1, score2);
+			// }
 
 		 if ((score1 >= 21 || score2 >= 21) && (score1 > score2 + 1 || score2 > score1 + 1)){
 			var winner = '';
@@ -69,6 +91,29 @@ function populateCurrent() {
 };
 
 function addScore(player, score){
+
+		//Checking for beep
+		var score1 = parseInt($('.player1 #score').html());
+		var score2 = parseInt($('.player2 #score').html());
+		var sum = score1 + score2 + score;
+		console.log(sum);
+		if ((sum) % 5 == 0){
+			var audio = new Audio('https://dl.dropboxusercontent.com/s/ktrpg49hxi3mfb4/beep.mp3');
+			if (sum % 10 == 0){
+				var count = 0;
+				audio.addEventListener('ended', function(){
+					if (count < 1){
+						audio.play();
+						count++;
+					}
+				});
+				audio.play();
+			} else {
+				audio.play();
+			}
+		}
+
+		//adding score to db
 		var id = $('.game').html();
 		$.ajax({
 			type: "POST",
