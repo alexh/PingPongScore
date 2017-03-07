@@ -16,7 +16,7 @@ $(document).ready(function() {
 function scoresUpdated(score1, score2){
 	var sum = score1 + score2
 		if ((sum) % 5 == 0){
-			var audio = new Audio('http://alexhaynes.org/beep.mp3');
+			var audio = new Audio('https://dl.dropboxusercontent.com/s/ktrpg49hxi3mfb4/beep.mp3');
 			if (sum % 10 == 0){
 				var count = 0;
 				audio.addEventListener('ended', function(){
@@ -48,10 +48,7 @@ function populateCurrent() {
 		 $('.player2 #score').html(game.score2);
 		 $('.game').html(game.id);
 
-		 console.log('old 1: ' + score1Old + ' score1: ' + score1);
-
 		 if (score1Old != score1 || score2 != score2Old){
-				console.log('there was change!');
 				scoresUpdated(score1, score2);
 			}
 
