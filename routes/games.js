@@ -18,7 +18,7 @@ router.get('/gamelist', function(req, res) {
 	      return res.status(500).json({success: false, data: err});
 	    }
 	    // SQL Query > Select Data
-	    const query = client.query('SELECT * FROM games;');
+	    const query = client.query('SELECT *, to_char(time, \'HH:MI AM MM/DD/YY\') as time_string FROM games ORDER BY time DESC;');
 	    // Stream results back one row at a time
 	    query.on('row', (row) => {
 	      results.push(row);

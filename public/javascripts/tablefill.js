@@ -37,6 +37,7 @@ function populateTable() {
         $.each(data, function(){
             tableContent += '<tr>';
             // tableContent += '<td><a href="#" class="linkshowgame" rel="' + this.username + '">' + this.username + '</a></td>';
+            tableContent += '<td>' + this.time_string + '</td>';
             tableContent += '<td>' + this.player1 + '</td>';
             tableContent += '<td>' + this.score1 + '</td>';
             tableContent += '<td>' + this.player2 + '</td>';
