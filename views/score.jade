@@ -1,0 +1,22 @@
+extends layout
+block content
+	link(rel='stylesheet', href='/stylesheets/score.css')
+	#players
+		div.player1-wrapper#player
+			div.player1
+				h2#name
+				h1#score
+				div.but(onclick="addScore(1,1)").btn-primary#addbutton +
+				div.but(onclick="addScore(1,-1)").btn-primary#subbutton -
+		div.my-spacer
+		div.player2-wrapper#player
+			div.player2
+				h2#name
+				h1#score
+				div.but(onclick="addScore(2,1)").btn-primary#addbutton +
+				div.but(onclick="addScore(2,-1)").btn-primary#subbutton -
+	div.my-alert
+	div.game
+	div.back-button(onclick="location.href='/'").btn-primary Back to Home
+block script
+	script(src='/javascripts/current.js')

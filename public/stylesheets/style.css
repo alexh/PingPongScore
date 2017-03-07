@@ -1,5 +1,5 @@
 body {
-  padding: 30px;
+  background: #D6D6D6;
   font: 14px 'Nunito', Helvetica, Arial, sans-serif;
 }
 
@@ -10,34 +10,6 @@ h2 {
 
 a {
   color: #00B7FF;
-}
-
-.game{
-	display: none;
-}
-
-.alert{
-	text-align: center;
-	color:#FC0017;
-	font-size: 200%;
-}
-
-#player{
-	padding-top: 3%;
-	text-align: center;
-}
-
-#addbutton{
-	font-size: 500%
-}
-
-#subbutton{
-	font-size: 500%
-}
-
-#score{
-	padding-top: 10%;
-	font-size: 1000%
 }
 
 #wrapper {

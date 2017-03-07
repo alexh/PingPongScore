@@ -19,8 +19,10 @@ block content
 					span Password
 				div.actions
 					input(type="submit", value="Begin")
-	// Wrapper
 
+	div.well#buttons
+		div.my-button(onclick="location.href='/play/current'") View Current Game
+		div.my-button(onclick="location.href='/play/score'") Score Current Game
 	div.well#leaderboard
 		h2.record 
 
@@ -36,7 +38,6 @@ block content
 				th status
 			tbody
 		// GAME LIST
-	// /WRAPPER
 block script
 	script(src='/javascripts/index.js')
 	script(src='/javascripts/tablefill.js')

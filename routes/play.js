@@ -33,7 +33,7 @@ router.post('/start', function(req, res) {
 		    	var queryString = 'INSERT INTO games ("player1", "player2") values(\''+ player1 + '\', \'' + player2 + '\');';
 		    	// console.log(queryString);
 	    		const query = client.query(queryString);
-	    		res.redirect('/play/current');
+	    		res.redirect('/play/score');
 		    } else {
 		    	res.redirect('/');
 		    }
@@ -46,6 +46,11 @@ router.post('/start', function(req, res) {
 	    //   done();
 	    // });
   	});
+});
+
+
+router.get('/score', function(req, res) {
+	res.render('score');
 });
 
 router.get('/current', function(req, res) {

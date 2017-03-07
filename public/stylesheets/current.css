@@ -1,0 +1,61 @@
+.game{
+	display: none;
+}
+body{
+}
+
+.my-alert{
+	text-align: center;
+	color:#FC0017;
+	font-size: 200%;
+}
+
+.player1-wrapper{
+	margin: 0 auto;
+}
+
+.player2-wrapper{
+	margin: 0 auto;
+}
+
+.my-spacer{
+	display: inline-block;
+	margin: 0 auto;
+	width: 10%;
+}
+
+#players {
+	margin-top: 5%;
+    text-align: center;
+}
+
+#player{
+	display: inline-block;
+	align-content: center;
+	text-align: center;
+}
+
+#addbutton{
+	line-height: 200%;
+	font-size: 1000%
+}
+
+#subbutton{
+	line-height: 100%;
+	font-size: 1000%
+}
+#name{
+	font-size: 400%;
+}
+#score{
+	line-height: 100%;
+	font-size: 1700%
+}
+
+.back-button{
+	margin:0 auto;
+	margin-top: 50px;
+	text-align: center;
+	display: block;
+	width: 100px;
+}

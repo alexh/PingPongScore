@@ -1,23 +1,18 @@
 extends layout
-
 block content
-	div.game
+	link(rel='stylesheet', href='/stylesheets/current.css')
 	#players
-		div.alert
-		div.row
-			div.col-sm-6#player
-				div.player1
-					h2#name
-					h1#score
-					a(onclick="addScore(1,1)").btn#addbutton +
-					br
-					a(onclick="addScore(1,-1)").btn#subbutton -
-			div.col-sm-6#player
-				div.player2
-					h2#name
-					h1#score
-					a(onclick="addScore(2,1)").btn#addbutton +
-					br
-					a(onclick="addScore(2,-1)").btn#subbutton -
+		div.player1-wrapper#player
+			div.player1
+				h2#name
+				h1#score
+		div.my-spacer
+		div.player2-wrapper#player
+			div.player2
+				h2#name
+				h1#score
+	div.my-alert
+	div.back-button(onclick="location.href='/'").btn-primary Back to Home
+	div.game
 block script
 	script(src='/javascripts/current.js')
