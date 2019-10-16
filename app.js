@@ -10,6 +10,7 @@ var pg = require('pg');
 // db config
 const connectionString = process.env.DATABASE_URL || 'postgres://localhost:5432';
 
+console.log(connectionString);
 const client = new pg.Client(connectionString);
 client.connect();
 
